@@ -5,7 +5,11 @@ const api = axios.create({
 });
 
 export const registerUser = async (dadosUsuario) => {
-    console.log("O que o React tá enviando pro C#:", dadosUsuario);
     const response = await api.post('/User/Cadastro', dadosUsuario);
     return response.data;
 };
+
+export const loginUser = async (dataUser) => {
+    const response = await api.post('/User/Login', dataUser);
+    return response.data;
+}

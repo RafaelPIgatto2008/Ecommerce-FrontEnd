@@ -1,58 +1,39 @@
-﻿import { useState } from 'react'
-import { registerUser} from "../Services/registerUser.js";
-import { useNavigate } from "react-router-dom";
+﻿import { useState, useEffect } from 'react';
+import { loginUser } from "../Services/registerUser.js";
 import "../assets/CSS/Base.css"
-import "../assets/CSS/Cadastro.css"
+import "../assets/CSS/Login.css"
 
-function Cadastro () {
+function Login() {
     const [form, setForm] = useState({
-        Name: "",
-        Email: "",
-        Password: "",
+        email: '',
+        password: ''
     })
-
-    const navigate = useNavigate();
     
     const handleChange = e => {
         setForm({ ...form, [e.target.name]: e.target.value });
     }
-
+    
     const handleSubmit = async e => {
         e.preventDefault();
-        
         try {
-            const result = await registerUser(form);
-            alert("Cadastrado com sucesso!");
+            const result = await loginUser(form);
+            alert('Login sucessful');
             console.log(result.message)
-            
-            setTimeout(() => {
-                navigate("/Login")}, 300);
-        } catch (err) {
-            alert("Deu pau!!!")
+        }catch (err) {
+            alert("ERRO", err);
             console.log(err)
         }
     }
 
     return (
-        <div className="container cadastro-container">
+        <div className="container page login-container">
             <div className="card">
                 <div className="header">
-                    <h2>Crie sua Conta Ecommerce</h2>
-                    <p>Rápido, fácil e seguro</p>
+                    <h2>Entrar no Ecommerce</h2>
+                    <p>Acesse sua conta com segurança</p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="form-corpo">
-                    <div className="input-group">
-                        <label>Nome Completo</label>
-                        <input
-                            name="Name"
-                            placeholder="Ex: Rafael Pigatto"
-                            value={form.Name}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
-
                     <div className="input-group">
                         <label>E-mail</label>
                         <input
@@ -70,15 +51,15 @@ function Cadastro () {
                         <input
                             name="Password"
                             type="password"
-                            placeholder="Mínimo 6 caracteres"
+                            placeholder="Sua senha"
                             value={form.Password}
                             onChange={handleChange}
                             required
                         />
                     </div>
-                    
+
                     <button type="submit" className="btn-cadastrar">
-                        Finalizar Cadastro
+                        Entrar
                     </button>
                 </form>
             </div>
@@ -86,4 +67,4 @@ function Cadastro () {
     );
 }
 
-export default Cadastro
+export default Login;
