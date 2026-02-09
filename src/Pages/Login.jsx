@@ -2,6 +2,7 @@
 import { loginUser } from "../Services/registerUser.js";
 import "../assets/CSS/Base.css"
 import "../assets/CSS/Login.css"
+import { toast } from "react-hot-toast";
 
 function Login() {
     const [form, setForm] = useState({
@@ -17,10 +18,11 @@ function Login() {
         e.preventDefault();
         try {
             const result = await loginUser(form);
-            alert('Login sucessful');
+            toast.success("Logado com sucesso!");
+            
             console.log(result.message)
         }catch (err) {
-            alert("ERRO", err);
+            toast.error(err.message);
             console.log(err)
         }
     }

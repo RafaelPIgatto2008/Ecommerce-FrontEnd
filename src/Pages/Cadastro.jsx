@@ -3,6 +3,7 @@ import { registerUser} from "../Services/registerUser.js";
 import { useNavigate } from "react-router-dom";
 import "../assets/CSS/Base.css"
 import "../assets/CSS/Cadastro.css"
+import { toast } from "react-hot-toast";
 
 function Cadastro () {
     const [form, setForm] = useState({
@@ -22,13 +23,13 @@ function Cadastro () {
         
         try {
             const result = await registerUser(form);
-            alert("Cadastrado com sucesso!");
+            toast.success("Cadastrado com sucesso!");
             console.log(result.message)
             
             setTimeout(() => {
                 navigate("/Login")}, 300);
         } catch (err) {
-            alert("Deu pau!!!")
+            toast.error("Erro ao cadastrar!");
             console.log(err)
         }
     }

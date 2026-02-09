@@ -1,32 +1,16 @@
 ﻿import { useNavigate } from 'react-router-dom';
 import "../assets/CSS/Base.css"
 import "../assets/CSS/LadinPage.css"
+import Navbar from "../Components/Navbar.jsx";
 
 export default function LadingPage(){
     const navigate = useNavigate();
     
     return (
         <div className="container landing-container">
-            <header className="landing-header">
-                <h1 className="logo">Ecommerce</h1>
-
-                <div className="auth-buttons">
-                    <button
-                        className="btn-link"
-                        onClick={() => navigate("/login")}
-                    >
-                        Login
-                    </button>
-
-                    <button
-                        className="btn-outline"
-                        onClick={() => navigate("/cadastro")}
-                    >
-                        Cadastro
-                    </button>
-                </div>
-            </header>
-
+            
+            <Navbar />
+            
             <div className = "box-lading">
                 <main className="landing-main">
                     <h1>Ecommerce</h1>
@@ -41,12 +25,21 @@ export default function LadingPage(){
                         <span>📦 Gestão simples</span>
                     </div>
                     
-                    <button
-                        className="btn-cadastrar"
-                        onClick={() => navigate("/cadastro")}
-                    >
-                        Criar conta
-                    </button>
+                    <div className="actions">
+                        <button
+                            className="btn-cadastrar"
+                            onClick={() => navigate("/cadastro")}
+                        >
+                            Criar conta
+                        </button>
+                        
+                        <button className="btn-cadastrar" 
+                                onClick={() => navigate("/")}
+                        >
+                            Conhecer o site
+                        </button>
+                    </div>
+                    
                 </main>
             </div>
         </div>
