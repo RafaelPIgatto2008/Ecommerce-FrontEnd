@@ -7,7 +7,7 @@
 
 .container {
     min-height: 100vh;
-    background: linear-gradient(135deg, #4f46e5, #9333ea);
+    background: linear-gradient(135deg, #3aa9d8, #d9d9ff);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,7 +15,7 @@
 }
 
 .card {
-    background: #ffffff;
+    background: #1e1e23;
     width: 100%;
     max-width: 420px;
     border-radius: 14px;
@@ -72,6 +72,7 @@
 }
 
 .btn-cadastrar {
+    padding: 10px;
     margin-top: 10px;
     height: 46px;
     border-radius: 10px;
