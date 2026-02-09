@@ -6,12 +6,12 @@ export default function Navbar() {
 
     return (
         <header className="navbar">
-            <div className="nav-logo" onClick={() => navigate("/")}>
+            <div className="nav-logo" onClick={() => navigate("/home")}>
                 Ecommerce
             </div>
 
             <nav className="nav-links">
-                <button onClick={() => navigate("/")}>Explorar</button>
+                <button onClick={() => navigate("/home")}>Explorar</button>
                 <button onClick={() => navigate("/login")}>Login</button>
             </nav>
         </header>
