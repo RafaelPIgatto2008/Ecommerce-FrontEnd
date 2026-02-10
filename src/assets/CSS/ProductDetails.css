@@ -1,0 +1,70 @@
+﻿.product-details {
+    max-width: 900px;
+    margin: 120px auto 40px auto;
+    padding: 50px;
+    
+    background: #1f3b4d;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    color: #fff;
+}
+
+.product-details h1 {
+    font-size: 2.4rem;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #4ade80;
+    margin: 20px 0;
+}
+
+.description {
+    margin: 24px 0;
+    line-height: 1.7;
+    font-size: 1.05rem;
+    color: #d1d5db;
+}
+
+.weight {
+    font-size: 0.95rem;
+    color: #9ca3af;
+    margin-bottom: 30px;
+}
+
+.btn-buy {
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-buy:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(79, 70, 229, 0.4);
+}
+
+.btn-buy:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 12px rgba(79, 70, 229, 0.3);
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(135deg, #3b82f6, #1e293b);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}

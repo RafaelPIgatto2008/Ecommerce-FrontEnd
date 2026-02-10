@@ -8,6 +8,7 @@ export const GetAllProducts = async () => {
     const response = await api.get('/Product/all-products')
     
     return response.data.value.map(p => ({
+        id: p.id,
         name: p.name,
         description: p.description,
         price: p.price.amount,

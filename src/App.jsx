@@ -3,6 +3,7 @@ import Cadastro from "./Pages/Cadastro.jsx";
 import Login from "./Pages/Login.jsx";
 import LadingPage from "./Pages/Landing.jsx";
 import Home from "./Pages/Home.jsx";
+import ProductDetails from "./Pages/ProductDetails.jsx";
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
                 <Route path="/cadastro" element={<Cadastro />} />
                 <Route path="/login" element={<Login />} />
                 <Route path='/home' element={<Home />} />
+                <Route path='/productdetails/:id' element={<ProductDetails />} />
             </Routes>
         </BrowserRouter>
     );

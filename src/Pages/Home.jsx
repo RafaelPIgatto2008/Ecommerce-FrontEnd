@@ -2,21 +2,26 @@
 import "../assets/CSS/Home.css";
 import { GetAllProducts } from "../Services/Products.js";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
-    
+    const navigate = useNavigate();
     const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
     
     useEffect(() => {
         async function loadProducts() {
             const response = await GetAllProducts();
-            
+
             setProducts(response ?? []);
+            console.log(response);
+            setLoading(false);
         }
         
         loadProducts();
     }, []);
-    
+
+
     return (
         <>
             <Navbar />
@@ -29,15 +34,17 @@ export default function Home() {
                 <h2>Produtos em destaque</h2>
 
                 <div className="products-grid">
-                    {products.map((produto, index) => (
-                        <div key={index} className="product-card">
+                    {products.map((produto) => (
+                        <div key={produto.id} className="product-card">
                             <h3>{produto.name}</h3>
 
                             <span>
                                 R$ {produto.price.toFixed(2)}
                             </span>
-
-                            <button>Ver produto</button>
+                            
+                            <button onClick={() => navigate(`/productdetails/${produto.id}`)}>
+                                Ver produto
+                            </button>
                         </div>
                     ))}
                 </div>
