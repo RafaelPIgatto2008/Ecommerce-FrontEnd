@@ -1,28 +1,22 @@
 ﻿import Navbar from "../components/Navbar";
 import "../assets/CSS/Home.css";
-
-const produtosMock = [
-    {
-        id: 1,
-        nome: "Notebook Gamer",
-        preco: 4999.90,
-        imagem: "https://via.placeholder.com/300"
-    },
-    {
-        id: 2,
-        nome: "Smartphone",
-        preco: 2999.90,
-        imagem: "https://via.placeholder.com/300"
-    },
-    {
-        id: 3,
-        nome: "Fone Bluetooth",
-        preco: 399.90,
-        imagem: "https://via.placeholder.com/300"
-    }
-];
+import { GetAllProducts } from "../Services/Products.js";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+    
+    const [products, setProducts] = useState([]);
+    
+    useEffect(() => {
+        async function loadProducts() {
+            const response = await GetAllProducts();
+            
+            setProducts(response ?? []);
+        }
+        
+        loadProducts();
+    }, []);
+    
     return (
         <>
             <Navbar />
@@ -35,13 +29,14 @@ export default function Home() {
                 <h2>Produtos em destaque</h2>
 
                 <div className="products-grid">
-                    {produtosMock.map(produto => (
-                        <div key={produto.id} className="product-card">
-                            <img src={produto.imagem} alt={produto.nome} />
-                            <h3>{produto.nome}</h3>
+                    {products.map((produto, index) => (
+                        <div key={index} className="product-card">
+                            <h3>{produto.name}</h3>
+
                             <span>
-                                R$ {produto.preco.toFixed(2)}
+                                R$ {produto.price.toFixed(2)}
                             </span>
+
                             <button>Ver produto</button>
                         </div>
                     ))}

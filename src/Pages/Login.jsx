@@ -3,6 +3,7 @@ import { loginUser } from "../Services/registerUser.js";
 import "../assets/CSS/Base.css"
 import "../assets/CSS/Login.css"
 import { toast } from "react-hot-toast";
+import {Navigate, useNavigate} from "react-router-dom";
 
 function Login() {
     const [form, setForm] = useState({
@@ -19,6 +20,11 @@ function Login() {
         try {
             const result = await loginUser(form);
             toast.success("Logado com sucesso!");
+            
+            localStorage.setItem("accessToken", result.data.token);
+            
+            // Navigate to home after login
+            Navigate("/home")
             
             console.log(result.message)
         }catch (err) {

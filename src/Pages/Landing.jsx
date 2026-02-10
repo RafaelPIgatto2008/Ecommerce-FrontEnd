@@ -46,7 +46,7 @@ export default function LadingPage(){
             <section className="section dark">
                 <h2>Sobre o projeto</h2>
                 <p className="about-text">
-                    Este ecommerce foi desenvolvido por mim com foco em
+                    Este ecommerce foi desenvolvido com foco em
                     performance, simplicidade e boas práticas.
                     O objetivo é oferecer uma base sólida para quem quer vender
                     online sem complicação.
