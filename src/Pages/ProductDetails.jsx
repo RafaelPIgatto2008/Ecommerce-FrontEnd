@@ -15,6 +15,7 @@ export default function ProductDetails() {
                 const response = await GetProductById(id);
 
                 setProduct(response);
+                console.log(response);
             } 
             catch (error) {
                 console.log("ID da rota:", id);
@@ -39,7 +40,7 @@ export default function ProductDetails() {
                 <h1>{product.name}</h1>
 
                 <p className="price">
-                    R$ {product.price.amount.toFixed(2).replace(".", ",")}
+                    R$ {product.price.toFixed(2).replace(".", ",")}
                 </p>
 
                 <p className="description">
