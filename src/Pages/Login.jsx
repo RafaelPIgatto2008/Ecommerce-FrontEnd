@@ -1,14 +1,16 @@
-﻿import { useState, useEffect } from 'react';
+﻿import { useState } from 'react';
 import { loginUser } from "../Services/registerUser.js";
 import "../assets/CSS/Base.css"
 import "../assets/CSS/Login.css"
 import { toast } from "react-hot-toast";
-import {Navigate, useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+    const navigate = useNavigate();
+    
     const [form, setForm] = useState({
-        email: '',
-        password: ''
+        Email: '',
+        Password: ''
     })
     
     const handleChange = e => {
@@ -24,7 +26,7 @@ function Login() {
             localStorage.setItem("accessToken", result.data.token);
             
             // Navigate to home after login
-            Navigate("/home")
+            navigate("/home")
             
             console.log(result.message)
         }catch (err) {

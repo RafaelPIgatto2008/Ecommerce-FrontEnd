@@ -14,7 +14,7 @@ export default function ProductDetails() {
             try {
                 const response = await GetProductById(id);
 
-                setProduct(response.data);
+                setProduct(response);
             } 
             catch (error) {
                 console.log("ID da rota:", id);

@@ -17,8 +17,38 @@ export const GetAllProducts = async () => {
     }));
 }
 
-export const GetProductById = async (id)=> await api.get(`/Product/${id}`);
+export const GetProductById = async (id)=> {
+    const response = await api.get(`/Product/${id}`)
+    return response.data.value.map(p => ({
+        id: p.id,
+        name: p.name,
+        description: p.description,
+        price: p.price.amount,
+        currency: p.price.currency,
+        weight: p.weight
+    }))
+};
 
-export const GetProductByPrice = async (price) => await api.get(`/Product/Product-by-price`);
+export const GetProductByPrice = async (price) => {
+    const response = await api.get(`/Product/Product-by-price`)
+    return response.data.value.map(p => ({
+        id: p.id,
+        name: p.name,
+        description: p.description,
+        price: p.price.amount,
+        currency: p.price.currency,
+        weight: p.weight
+    }))
+};
 
-export const GetProductByWeight = async (weight) => await api.get(`/Product/Product-by-weight`);
+export const GetProductByWeight = async (weight) => {
+    const response = await api.get(`/Product/Product-by-weight`)
+    return response.data.value.map(p => ({
+        id: p.id,
+        name: p.name,
+        description: p.description,
+        price: p.price.amount,
+        currency: p.price.currency,
+        weight: p.weight
+    }))
+};
