@@ -1,6 +1,6 @@
 ﻿import Navbar from "../components/Navbar";
 import "../assets/CSS/Home.css";
-import { GetAllProducts } from "../Services/Products.js";
+import { GetAllProducts } from "../Services/products.js";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
