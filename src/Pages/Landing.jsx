@@ -1,7 +1,7 @@
 ﻿import { useNavigate } from 'react-router-dom';
 import "../assets/CSS/Base.css"
 import "../assets/CSS/LadinPage.css"
-import Navbar from "./Components/Navbar.jsx";
+import Navbar from "../Components/Navbar.jsx";
 
 export default function LadingPage(){
     const navigate = useNavigate();
